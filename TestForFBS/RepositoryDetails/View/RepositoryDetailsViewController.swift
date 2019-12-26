@@ -19,6 +19,7 @@ class RepositoryDetailsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var stargazersCount: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var seeRepositoryButton: UIButton!
+    @IBOutlet weak var updated: UILabel!
     
     var viewModel: RepositoryDetailsViewModel!
     var disposeBag = DisposeBag()
@@ -63,6 +64,7 @@ class RepositoryDetailsViewController: UIViewController, Storyboarded {
         self.stargazersCount.text = String(repository.stargazersCount)
         self.descriptionTextView.text = repository.description
         self.authorLogin.text = repository.owner.login
+        self.updated.text = repository.updatedAt.toString()
     }
     
     func openInSafari(url: URL) {

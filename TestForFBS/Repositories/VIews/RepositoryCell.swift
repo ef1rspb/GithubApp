@@ -16,7 +16,6 @@ class RepositoryCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var stargazersLabel: UILabel!
-    @IBOutlet weak var lastUpdatedLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

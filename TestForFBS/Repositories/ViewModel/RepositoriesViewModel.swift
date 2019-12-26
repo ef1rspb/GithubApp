@@ -68,7 +68,7 @@ class RepositoriesViewModel {
         self.coordinator = coordinator
         self.service = service
         
-        // MARK: input binding
+        // MARK: input actions binding
         
         onPaginationFetchTriggered
             .subscribe(onNext: { [unowned self] _ in

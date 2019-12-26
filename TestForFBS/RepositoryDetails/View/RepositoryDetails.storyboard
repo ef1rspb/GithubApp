@@ -42,25 +42,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OFr-e5-Oc2">
-                                <rect key="frame" x="28.000000000000007" y="219" width="123.66666666666669" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="nZZ-CK-L1n">
+                                <rect key="frame" x="15" y="219" width="345" height="25"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="YZv-Ry-nfn">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OFr-e5-Oc2">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="25"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="YZv-Ry-nfn">
+                                                <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="Z0t-5z-VyW"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z59-ld-vF3">
+                                                <rect key="frame" x="33" y="0.0" width="105" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="105" id="hkx-cA-j2q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="Z0t-5z-VyW"/>
+                                            <constraint firstAttribute="width" constant="138" id="Es5-wY-KUI"/>
+                                            <constraint firstAttribute="height" constant="25" id="sXX-yR-Wuj"/>
                                         </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z59-ld-vF3">
-                                        <rect key="frame" x="33.000000000000007" y="0.0" width="90.666666666666686" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 Dec 2019" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wab-wq-j2W">
+                                        <rect key="frame" x="174" y="0.0" width="171" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="sXX-yR-Wuj"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvo-CU-4J2">
                                 <rect key="frame" x="90.666666666666686" y="382" width="194" height="62"/>
@@ -99,18 +114,20 @@
                         <constraints>
                             <constraint firstItem="LcG-xq-zJW" firstAttribute="top" secondItem="IuP-tE-cWn" secondAttribute="bottom" constant="11.33" id="BeP-7R-EiO"/>
                             <constraint firstItem="IuP-tE-cWn" firstAttribute="top" secondItem="8vr-fp-vbv" secondAttribute="bottom" constant="5" id="DrK-Ql-nOb"/>
+                            <constraint firstItem="nZZ-CK-L1n" firstAttribute="centerX" secondItem="NAM-xi-T4A" secondAttribute="centerX" id="Hex-nk-zwU"/>
                             <constraint firstItem="8vr-fp-vbv" firstAttribute="top" secondItem="NAM-xi-T4A" secondAttribute="top" constant="10" id="HlE-lX-I5v"/>
                             <constraint firstItem="LcG-xq-zJW" firstAttribute="leading" secondItem="NAM-xi-T4A" secondAttribute="leading" constant="15" id="Hss-Es-CQQ"/>
                             <constraint firstItem="xFB-c8-i6N" firstAttribute="leading" secondItem="NAM-xi-T4A" secondAttribute="leading" constant="20" id="LKX-PF-pP4"/>
                             <constraint firstItem="Uvo-CU-4J2" firstAttribute="centerX" secondItem="NAM-xi-T4A" secondAttribute="centerX" id="LOO-s5-kj6"/>
-                            <constraint firstItem="OFr-e5-Oc2" firstAttribute="leading" secondItem="NAM-xi-T4A" secondAttribute="leading" constant="28" id="McT-0j-etk"/>
-                            <constraint firstItem="xFB-c8-i6N" firstAttribute="top" secondItem="OFr-e5-Oc2" secondAttribute="bottom" constant="8" id="MhW-ku-d6A"/>
+                            <constraint firstItem="xFB-c8-i6N" firstAttribute="top" secondItem="nZZ-CK-L1n" secondAttribute="bottom" constant="8" id="Rss-bm-Grq"/>
                             <constraint firstItem="Qvs-8O-1sh" firstAttribute="top" secondItem="8vr-fp-vbv" secondAttribute="bottom" constant="7.6699999999999999" id="Uh5-5z-M0n"/>
                             <constraint firstItem="Uvo-CU-4J2" firstAttribute="top" secondItem="xFB-c8-i6N" secondAttribute="bottom" constant="10" id="VbE-OC-wfa"/>
                             <constraint firstItem="b4a-IJ-e4L" firstAttribute="top" secondItem="Qvs-8O-1sh" secondAttribute="bottom" constant="5" id="X61-De-2kB"/>
                             <constraint firstItem="Qvs-8O-1sh" firstAttribute="leading" secondItem="IuP-tE-cWn" secondAttribute="trailing" constant="8" id="ZEJ-oj-x0S"/>
-                            <constraint firstItem="OFr-e5-Oc2" firstAttribute="top" secondItem="LcG-xq-zJW" secondAttribute="bottom" constant="14" id="h2i-CV-S9C"/>
+                            <constraint firstItem="nZZ-CK-L1n" firstAttribute="leading" secondItem="NAM-xi-T4A" secondAttribute="leading" constant="15" id="Zge-YF-DYq"/>
+                            <constraint firstItem="nZZ-CK-L1n" firstAttribute="top" secondItem="LcG-xq-zJW" secondAttribute="bottom" constant="14" id="cxf-LC-Qtq"/>
                             <constraint firstItem="b4a-IJ-e4L" firstAttribute="leading" secondItem="IuP-tE-cWn" secondAttribute="trailing" constant="8" id="k4G-wL-S4r"/>
+                            <constraint firstItem="NAM-xi-T4A" firstAttribute="trailing" secondItem="nZZ-CK-L1n" secondAttribute="trailing" constant="15" id="khV-9z-Btp"/>
                             <constraint firstItem="IuP-tE-cWn" firstAttribute="leading" secondItem="NAM-xi-T4A" secondAttribute="leading" constant="16" id="n70-3y-fVs"/>
                             <constraint firstItem="NAM-xi-T4A" firstAttribute="trailing" secondItem="LcG-xq-zJW" secondAttribute="trailing" constant="20" id="niS-MB-oLJ"/>
                             <constraint firstItem="8vr-fp-vbv" firstAttribute="leading" secondItem="NAM-xi-T4A" secondAttribute="leading" constant="15" id="oB0-4B-6go"/>
@@ -128,6 +145,7 @@
                         <outlet property="seeAuthorButton" destination="b4a-IJ-e4L" id="6mI-2m-h8i"/>
                         <outlet property="seeRepositoryButton" destination="Uvo-CU-4J2" id="k3a-Sq-FVU"/>
                         <outlet property="stargazersCount" destination="Z59-ld-vF3" id="KI5-l5-7jZ"/>
+                        <outlet property="updated" destination="Wab-wq-j2W" id="1jE-2H-ez3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjU-3H-3HJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

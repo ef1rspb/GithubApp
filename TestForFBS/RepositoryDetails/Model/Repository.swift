@@ -13,9 +13,9 @@ struct Repository: Decodable {
     let fullName: String
     let name: String
     let owner: Owner
-    let description: String?
+    let updatedAt: Date
     let stargazersCount: Int
+    let description: String?
     let language: String?
-    let updatedAt: Date?
     let htmlUrl: URL?
 }

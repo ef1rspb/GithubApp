@@ -38,7 +38,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Py-tjg">
-                                <rect key="frame" x="0.0" y="72" width="268" height="29"/>
+                                <rect key="frame" x="0.0" y="72" width="124" height="29"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="42L-Yq-EFu">
                                         <rect key="frame" x="0.0" y="4.5" width="124" height="20"/>
@@ -69,12 +69,6 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated Nov 29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWJ-vJ-DC1">
-                                        <rect key="frame" x="162" y="6" width="106" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -92,7 +86,6 @@
             <connections>
                 <outlet property="descriptionLabel" destination="BdZ-8l-20v" id="h8n-MD-4Q3"/>
                 <outlet property="languageLabel" destination="VAI-hn-oL0" id="Gs5-Kp-UHZ"/>
-                <outlet property="lastUpdatedLabel" destination="rWJ-vJ-DC1" id="07Y-7Y-TXg"/>
                 <outlet property="stargazersLabel" destination="edg-Hg-JnJ" id="xYc-tG-qfg"/>
                 <outlet property="titleLabel" destination="c1F-FE-8E0" id="4pn-n2-oB4"/>
             </connections>

@@ -48,7 +48,6 @@ class TestGitHubService: XCTestCase {
 }
 
 class TestRepositoriesViewModel: XCTestCase {
-    var scheduler = TestScheduler(initialClock: 0)
     var service: GitHubServiceProtocol!
     var disposeBag: DisposeBag!
     var provider: MoyaProvider<GitHubAPI>!

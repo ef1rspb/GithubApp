@@ -45,6 +45,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
     
     func configureSearchController() {
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.hidesNavigationBarDuringPresentation = false
         searchBar.showsCancelButton = false
         searchBar.isTranslucent = false
         searchBar.placeholder = "Search on GitHub"

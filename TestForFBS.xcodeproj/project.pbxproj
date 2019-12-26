@@ -36,6 +36,8 @@
 		7491731423B238D50082552C /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7491731223B238D50082552C /* RepositoryCell.xib */; };
 		7491731723B23F370082552C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491731623B23F370082552C /* Repository.swift */; };
 		7491731923B242230082552C /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7491731823B242230082552C /* GithubAPI.swift */; };
+		74C4EB9923B50D7F00EF3BAE /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4EB9823B50D7F00EF3BAE /* DateFormat.swift */; };
+		74C4EB9B23B5166E00EF3BAE /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4EB9A23B5166E00EF3BAE /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		7491731223B238D50082552C /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		7491731623B23F370082552C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7491731823B242230082552C /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		74C4EB9823B50D7F00EF3BAE /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		74C4EB9A23B5166E00EF3BAE /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		89493697870EAF62F3EFF9FD /* Pods-TestForFBSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestForFBSTests.debug.xcconfig"; path = "Target Support Files/Pods-TestForFBSTests/Pods-TestForFBSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E267EA4D9BF6A75A86E2AAD /* Pods-TestForFBS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestForFBS.debug.xcconfig"; path = "Target Support Files/Pods-TestForFBS/Pods-TestForFBS.debug.xcconfig"; sourceTree = "<group>"; };
 		D6B5C5553CC99AB82784331C /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +187,7 @@
 			children = (
 				7427944F23B3B27E000220FF /* UIImageView+Extensions.swift */,
 				7427945723B3E691000220FF /* UICollectionView+Extensions.swift */,
+				74C4EB9A23B5166E00EF3BAE /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				7491730023B2277F0082552C /* Storyboarded.swift */,
+				74C4EB9823B50D7F00EF3BAE /* DateFormat.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7427945823B3E691000220FF /* UICollectionView+Extensions.swift in Sources */,
+				74C4EB9B23B5166E00EF3BAE /* Date+Extensions.swift in Sources */,
 				7491731323B238D50082552C /* RepositoryCell.swift in Sources */,
 				7427945223B3D4D3000220FF /* GihubServiceProtocol.swift in Sources */,
 				7427944D23B39E87000220FF /* Owner.swift in Sources */,
@@ -529,6 +536,7 @@
 				7427944A23B37875000220FF /* AppCoordinator.swift in Sources */,
 				7491731923B242230082552C /* GithubAPI.swift in Sources */,
 				7491731723B23F370082552C /* Repository.swift in Sources */,
+				74C4EB9923B50D7F00EF3BAE /* DateFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

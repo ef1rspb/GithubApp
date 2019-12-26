@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZGK-Z1-ALQ">
-                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="w22-YW-o5v">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -35,24 +35,11 @@
                                 </view>
                                 <sections/>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search on GitHub" translatesAutoresizingMaskIntoConstraints="NO" id="hLI-qj-U4X">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" red="1" green="0.99999421830000002" blue="0.99999183420000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hLI-qj-U4X" firstAttribute="trailing" secondItem="XLh-Iy-gIs" secondAttribute="trailing" id="3d0-KC-Xe0"/>
-                            <constraint firstItem="hLI-qj-U4X" firstAttribute="leading" secondItem="XLh-Iy-gIs" secondAttribute="leading" id="46K-Z1-3gg"/>
-                            <constraint firstItem="ZGK-Z1-ALQ" firstAttribute="top" secondItem="hLI-qj-U4X" secondAttribute="bottom" id="P3p-oN-tGb"/>
+                            <constraint firstItem="ZGK-Z1-ALQ" firstAttribute="top" secondItem="XLh-Iy-gIs" secondAttribute="top" id="Ro6-Ru-Xn7"/>
                             <constraint firstAttribute="bottom" secondItem="ZGK-Z1-ALQ" secondAttribute="bottom" id="emN-xm-nkk"/>
-                            <constraint firstItem="hLI-qj-U4X" firstAttribute="top" secondItem="XLh-Iy-gIs" secondAttribute="top" id="jCI-6J-EoB"/>
                             <constraint firstItem="ZGK-Z1-ALQ" firstAttribute="leading" secondItem="XLh-Iy-gIs" secondAttribute="leading" id="oeF-SN-AI6"/>
                             <constraint firstItem="ZGK-Z1-ALQ" firstAttribute="trailing" secondItem="XLh-Iy-gIs" secondAttribute="trailing" id="xAm-TO-RYV"/>
                         </constraints>
@@ -60,7 +47,6 @@
                     </view>
                     <connections>
                         <outlet property="activityindicator" destination="rE2-IG-5Oj" id="Pdd-lG-Pd7"/>
-                        <outlet property="searchBar" destination="hLI-qj-U4X" id="WcQ-nh-vSg"/>
                         <outlet property="tableView" destination="ZGK-Z1-ALQ" id="xL8-8g-xYu"/>
                     </connections>
                 </viewController>

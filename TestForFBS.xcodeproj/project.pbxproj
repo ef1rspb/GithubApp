@@ -246,15 +246,14 @@
 			isa = PBXGroup;
 			children = (
 				749172DD23B21F750082552C /* AppDelegate.swift */,
+				749172E923B21F770082552C /* Info.plist */,
 				749172FF23B2254B0082552C /* Coordinators */,
 				7427947D23B4D366000220FF /* Helpers */,
 				7427944E23B3B261000220FF /* Extensions */,
 				7427945323B3D4F2000220FF /* GitHub */,
 				7427943B23B36253000220FF /* RepositoryDetails */,
 				7491730223B228090082552C /* Repositories */,
-				749172E423B21F770082552C /* Assets.xcassets */,
-				749172E623B21F770082552C /* LaunchScreen.storyboard */,
-				749172E923B21F770082552C /* Info.plist */,
+				74C4EB9C23B5E81500EF3BAE /* Aux */,
 			);
 			path = TestForFBS;
 			sourceTree = "<group>";
@@ -297,6 +296,15 @@
 				7427943223B2537C000220FF /* RepositoryList.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		74C4EB9C23B5E81500EF3BAE /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				749172E623B21F770082552C /* LaunchScreen.storyboard */,
+				749172E423B21F770082552C /* Assets.xcassets */,
+			);
+			path = Aux;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

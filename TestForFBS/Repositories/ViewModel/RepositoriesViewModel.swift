@@ -10,10 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-protocol RepositoriesViewModelProtocol {
-    
-}
-
 class RepositoriesViewModel {
     
     var coordinator: RepositoriesCoordinator

@@ -10,7 +10,8 @@ import UIKit
 import Moya
 
 class RepositoriesCoordinator: BaseCoordinator {
-    
+
+  // а смысл?
     override init(navigationController: UINavigationController) {
         super.init(navigationController: navigationController)
     }
@@ -23,8 +24,12 @@ class RepositoriesCoordinator: BaseCoordinator {
         let provider = MoyaProvider<GitHubAPI>()
         let viewController = RepositoriesViewController.instantiate()
         let githubService = GitHubService(provider: provider)
+      // во вьюмодель прокидывается координатор, который вьюмодель никогда не дергает.
+      // Может сразу назначить вьюконтроллеру координатор? а то что-то сложнаа
         viewController.viewModel = RepositoriesViewModel(coordinator: self, service: githubService)
-        self.navigationController.setViewControllers([viewController], animated: true)
+      // self можно опустить
+      // это то же самое, что и pushViewController?
+      self.navigationController.setViewControllers([viewController], animated: true)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationItem.title = "Repositories"
     }

@@ -13,6 +13,7 @@ import RxSwift
 class RepositoriesViewModel {
     
     var coordinator: RepositoriesCoordinator
+  // прям все свойства должны быть internal?
     let service: GitHubServiceProtocol
     let disposeBag = DisposeBag()
     
@@ -41,6 +42,9 @@ class RepositoriesViewModel {
         isLoading.accept(true)
         service.getRepositoryList(page: currentPage.value, topic: search.value)
             .timeout(RxTimeInterval(10), scheduler: MainScheduler.instance)
+          // на каждый вызов fetchRepositories создается новая подписка, ресурсы будут утекать.
+          // можно добавить .asSingle()
+          // но тебе повезло, что moyaProvider уже возвращает single, а обертка Observable ниче не решает
             .subscribe(onNext: { items, message in
                 if let items = items {
                     switch context {
@@ -53,11 +57,11 @@ class RepositoriesViewModel {
                     if message.contains(APIMessage.limitExceeded.rawValue) {
                         self.onMessageFromAPI.onNext(APIMessage.limitExceeded)
                     } else if message.contains("search results are available") {
-                        return
+                        return // а тогда смысл этой проверки? ниже все равно ничего нет
                     }
                 }
             }, onError: { error in
-                self.onFetchFailed.onNext((error))
+                self.onFetchFailed.onNext((error)) // пара скобок лишняя
                 self.isLoading.accept(false)
             }, onCompleted: {
                 self.isLoading.accept(false)

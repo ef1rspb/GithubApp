@@ -11,7 +11,9 @@ import SafariServices
 import RxSwift
 
 class RepositoryDetailsViewController: UIViewController, Storyboarded {
-    
+
+  // хардкодить ширину лэйбла "Thanks to" или кнопки "See Author Button" - это зло)
+  // и констрэинты со точностью до сотых - это странно
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var authorLogin: UILabel!
     @IBOutlet weak var seeAuthorButton: UIButton!
@@ -22,10 +24,13 @@ class RepositoryDetailsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var updated: UILabel!
     
     var viewModel: RepositoryDetailsViewModel!
+  // зачем var, если это let?
     var disposeBag = DisposeBag()
+  // отделяем новой строкой
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+      // self можно опустить
         self.setLargeTitleDisplayMode(.never)
         avatar.setRounded()
         
@@ -60,6 +65,7 @@ class RepositoryDetailsViewController: UIViewController, Storyboarded {
     }
     
     func setUpViews(repository: Repository) {
+      // self можно опустить
         self.repositoryTitle.text = repository.name
         self.stargazersCount.text = String(repository.stargazersCount)
         self.descriptionTextView.text = repository.description
@@ -68,6 +74,7 @@ class RepositoryDetailsViewController: UIViewController, Storyboarded {
     }
     
     func openInSafari(url: URL) {
+      // почему VC управляет цепочкой экранов, если в проекте есть координаторы?
         let safariVC = SFSafariViewController(url: url)
         self.present(safariVC, animated: true, completion: nil)
     }

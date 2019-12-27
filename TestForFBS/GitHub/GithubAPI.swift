@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 
+// GitHubAPITarget точнее описывает назначение сущности
 enum GitHubAPI {
     case getRepositoryList(page: Int, topic: String)
 }

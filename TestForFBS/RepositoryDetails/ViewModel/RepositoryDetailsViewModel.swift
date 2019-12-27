@@ -9,14 +9,16 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import SafariServices
+import SafariServices // зачем?
 
 class RepositoryDetailsViewModel {
+  // зачем это Observable? репа же никогда не обновляется
     var repository: Observable<Repository>
     var avatarImage = BehaviorRelay<UIImage>(value: UIImage(named: "user")!)
     
     let disposeBag = DisposeBag()
-    
+
+  // cвойство нигде не используется
     let isLoading = BehaviorRelay<Bool>(value: false)
     
     init(repository: Repository) {
@@ -28,6 +30,11 @@ class RepositoryDetailsViewModel {
         URLSession.shared.dataTask( with: url, completionHandler: { (data, _, _) -> Void in
             DispatchQueue.global(qos: .userInteractive).async {
                 if let data = data {
+                  // а если не получится сформировать UIImage из данных?
+                  // BehaviorRelay: Unlike `BehaviorSubject` it can't terminate with error or completed.
+                  // поэтому здесь оно и не завершится с ошибкой, а просто упадет) жескаа
+                  // а вот как раз completed для загрузки изображения может и пригодиться в будущем,
+                  // потому что загружать картинку надо только один раз
                     self.avatarImage.accept(UIImage(data: data)!)
                 }
             }

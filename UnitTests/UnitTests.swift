@@ -17,8 +17,10 @@ import Moya
 
 let mockError = NSError(domain: "test", code: 1)
 
+// он же нигде не используется
 class GithubServiceErrorMock: GitHubServiceProtocol {
     func getRepositoryList(page: Int, topic: String) -> Observable<ServerResponse> {
+      // можно просто return .error(mockError)
         return Observable.create { observable in
             observable.onError(mockError)
             return Disposables.create()
@@ -26,6 +28,8 @@ class GithubServiceErrorMock: GitHubServiceProtocol {
     }
 }
 
+// это не тестовый сервис, а тест сервиса, поэтому
+// GitHubServiceTests
 class TestGitHubService: XCTestCase {
     var service: GitHubServiceProtocol!
     var disposeBag: DisposeBag!
@@ -38,6 +42,8 @@ class TestGitHubService: XCTestCase {
     }
 
     func testDecoding() throws {
+      // из этого теста нифига не понятно, как это было сконфигуривано, а надо смотреть setUp()
+      // а если я захочу написать другой тест, который должен как раз возвращать ошибку, то мне придется переписать setUp()
         do {
              _ = try service.getRepositoryList(page: 1, topic: "test").toBlocking().first()
         } catch {
@@ -47,6 +53,7 @@ class TestGitHubService: XCTestCase {
     }
 }
 
+// и каждый unit-test в отдельном файле вида <MyModel>Tests.swift
 class TestRepositoriesViewModel: XCTestCase {
     var service: GitHubServiceProtocol!
     var disposeBag: DisposeBag!
@@ -89,7 +96,7 @@ class TestRepositoriesViewModel: XCTestCase {
             return
         }
         
-        viewModel.onSearchFetchTriggered.on(.next("test"))
+        viewModel.onSearchFetchTriggered.on(.next("test")) // над .on(.next()) есть обертка onNext()
         
         let result = try viewModel.repositories.toBlocking().first()!
         

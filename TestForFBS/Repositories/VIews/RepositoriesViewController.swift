@@ -19,23 +19,31 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
     @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     
     var viewModel: RepositoriesViewModel!
+  // тоже internal?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
+      // self можно опустить
         self.setLargeTitleDisplayMode(.never)
         configureSearchController()
-        
+
+      // вот MARK же написал, а почему в отдельый метод configureTable() не вынес?
         // MARK: Tableview configuration
         tableView.register(UINib(nibName: "RepositoryCell", bundle: nil), forCellReuseIdentifier: RepositoryCell.id)
-        tableView.separatorColor = UIColor.gray
+        tableView.separatorColor = UIColor.gray // можно .gray
         tableView.keyboardDismissMode = .onDrag
-        
+
         setupTableViewBindings()
         setupSearchbarBindings()
         setupViewModelBindings()
     }
-    
+
+  // такое стОит писать отдельным расширением
+  // extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+      // вообще вместо этого костыля можно дописать в configureTable()
+//      tableView.rowHeight = UITableView.automaticDimension
+//      tableView.estimatedRowHeight = 123
         return 123.0
     }
     
@@ -51,6 +59,7 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
         searchBar.isTranslucent = false
         searchBar.placeholder = "Search on GitHub"
         tableView.tableHeaderView = searchController.searchBar
+      // self можно опустить
         self.definesPresentationContext = true
     }
     
@@ -66,7 +75,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
                     self?.activityindicator.isHidden = true
                 }
             }).disposed(by: disposeBag)
-        
+
+      // subscribe на новой строке
         viewModel.onFetchFailed.subscribe(onNext: { error in
             self.displayMessage("Something went wrong", error: true)
         }).disposed(by: disposeBag)
@@ -86,12 +96,16 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
         viewModel.repositories
             .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] list in
+              // здесь [weak self] таки объявлен, а вверху в аналогичных ситуациях нет. почему?
                 if list.isEmpty {
+                  // showEmptyView()
+                  // каждый раз сдк будет вытаскивать из ниба, или результат как-то внутри кэшируется?
                     if let emptyView = Bundle.main.loadNibNamed("RepositoriesEmptyView", owner: nil, options: nil)?[0] as? UIView {
                         self?.tableView.backgroundView = emptyView
                         self?.tableView.isScrollEnabled = false
                     }
                 } else {
+                  // hideEmptyView()
                     self?.tableView.backgroundView = UIView()
                     self?.tableView.isScrollEnabled = true
                 }
@@ -102,6 +116,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
             .observeOn(MainScheduler.instance)
             .bind(to: tableView.rx
                         .items(cellIdentifier: "RepositoryCell", cellType: RepositoryCell.self)) { _, element, cell in
+                          // element ни о чем не говорит, это же repository
+                          // cell.setup(with: repository), а дальше пусть ячейка сама решает, что из модели ей использовать и как форматировать
                             cell.titleLabel.text = element.fullName
                             cell.descriptionLabel.text = element.description
                             cell.stargazersLabel.text = String(element.stargazersCount)
@@ -115,6 +131,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
         tableView.rx.contentOffset
             .debounce(RxTimeInterval(0.05), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] offset in
+              // VC держит VM и tableView и без них не существует, поэтому писать [unowned self]
+              // и можно писать просто if let self = self {
                 if let `self` = self {
                     if offset.y + self.tableView.frame.size.height + 25.0 > self.tableView.contentSize.height {
                         self.viewModel.onPaginationFetchTriggered.onNext(())
@@ -123,6 +141,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, Storybo
             }).disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Repository.self)
+          // modelSelected и так на главном потоке,
+          // потому что это просто обертка над collectionView(_:didSelectItemAtIndexPath:)`.
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.coordinator.showRepositoryDetailsViewController(repository: $0)

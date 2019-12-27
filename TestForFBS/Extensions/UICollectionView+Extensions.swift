@@ -7,11 +7,13 @@
 //
 import UIKit
 
+// название файла не соответствует коду
 extension UIViewController {
 
     func setLargeTitleDisplayMode(_ largeTitleDisplayMode: UINavigationItem.LargeTitleDisplayMode) {
         switch largeTitleDisplayMode {
         case .automatic:
+          // необычно break видеть в блоке guard, но тоже валидно)
               guard let navigationController = navigationController else { break }
             if let index = navigationController.children.firstIndex(of: self) {
                 setLargeTitleDisplayMode(index == 0 ? .always : .never)

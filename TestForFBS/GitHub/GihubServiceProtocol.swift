@@ -9,8 +9,10 @@
 import Foundation
 import RxSwift
 
+// а если приложение будет чуть сложнее калькулятора, то как будем отличать один ServerResponse от другого?
 typealias ServerResponse = ([Repository]?, String?)
 
+// то что это протокол говорит само объявление
 protocol GitHubServiceProtocol {
     func getRepositoryList(page: Int, topic: String) -> Observable<ServerResponse>
 }

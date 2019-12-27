@@ -26,19 +26,25 @@ class GitHubService: GitHubServiceProtocol {
     }
     
     func getRepositoryList(page: Int, topic: String) -> Observable<ServerResponse> {
-        return Observable.create { [unowned self] observer in
-            self.provider.rx
-                .request(.getRepositoryList(page: page, topic: topic))
-                .map(RepositoryList.self, using: self.decoder)
-                .subscribe(onSuccess: { list in
-                    let response = ServerResponse(list.items, list.message)
-                    observer.onNext(response)
-                    observer.onCompleted()
-                }, onError: {
-                    observer.onError($0)
-                }).disposed(by: self.disposeBag)
-            return Disposables.create()
-        }
+      // можно проще
+      return provider.rx
+        .request(.getRepositoryList(page: page, topic: topic))
+        .map(RepositoryList.self, using: decoder)
+        .asObservable()
+        .map { ServerResponse($0.items, $0.message) }
+//        return Observable.create { [unowned self] observer in
+//            self.provider.rx
+//                .request(.getRepositoryList(page: page, topic: topic))
+//                .map(RepositoryList.self, using: self.decoder)
+//                .subscribe(onSuccess: { list in
+//                    let response = ServerResponse(list.items, list.message)
+//                    observer.onNext(response)
+//                    observer.onCompleted()
+//                }, onError: {
+//                    observer.onError($0)
+//                }).disposed(by: self.disposeBag)
+//            return Disposables.create()
+//        }
     }
     
 }

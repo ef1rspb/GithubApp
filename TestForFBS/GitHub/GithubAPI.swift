@@ -19,7 +19,6 @@ extension GitHubAPI: TargetType {
         var components = URLComponents()
          components.scheme = "https"
          components.host = "api.github.com"
-        //FIXME: Shit here
         return components.url!
     }
     
@@ -39,7 +38,6 @@ extension GitHubAPI: TargetType {
         return .none
     }
     
-    // TODO: Sample for testing
     var sampleData: Data {
         switch self {
         case .getRepositoryList:

@@ -26,7 +26,7 @@ class GitHubService: GitHubServiceProtocol {
     }
     
     func getRepositoryList(page: Int, topic: String) -> Observable<ServerResponse> {
-        return Observable.create { observer in
+        return Observable.create { [unowned self] observer in
             self.provider.rx
                 .request(.getRepositoryList(page: page, topic: topic))
                 .map(RepositoryList.self, using: self.decoder)

@@ -19,7 +19,7 @@ class RepositoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        self.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         self.selectionStyle = .none
     }
     
